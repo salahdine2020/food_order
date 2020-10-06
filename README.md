@@ -1,14 +1,16 @@
-# Food Ordering App - Flutter UI
+# food_order_test
 
-## [Watch it on YouTube](https://youtu.be/F0ujC60wHwc)
+A new Flutter application.
 
-**Packages we are using:**
+## Getting Started
 
-- flutter_svg: [link](https://pub.dev/packages/flutter_svg)
-- smooth_star_rating: [link](https://pub.dev/packages/smooth_star_rating)
+This project is a starting point for a Flutter application.
 
-We design two pages one is the home page and another one is details page that will help you to design clear interfaces for food delivery app faster and easier.
+A few resources to get you started if this is your first Flutter project:
 
-### Food App Final UI
+- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-![App UI](/ui.png)
+For help getting started with Flutter, view our
+[online documentation](https://flutter.dev/docs), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.

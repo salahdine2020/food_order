@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:food_app/constants.dart';
+import 'package:food_order_test/constants.dart';
 
 class OrderButton extends StatelessWidget {
   const OrderButton({
@@ -19,7 +19,7 @@ class OrderButton extends StatelessWidget {
       width: size.width * 0.8,
       // it will cover 80% of total width
       decoration: BoxDecoration(
-        color: kPrimaryColor,
+        color: kButtonColor,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Material(

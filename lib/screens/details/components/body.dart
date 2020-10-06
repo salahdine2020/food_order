@@ -1,8 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:food_app/constants.dart';
-import 'package:food_app/screens/details/components/item_image.dart';
-import 'package:food_app/screens/details/components/order_button.dart';
-import 'package:food_app/screens/details/components/title_price_rating.dart';
+import 'package:food_order_test/constants.dart';
+import 'package:food_order_test/screens/details/components/item_image.dart';
+import 'package:food_order_test/screens/details/components/order_button.dart';
+import 'package:food_order_test/screens/details/components/title_price_rating.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -20,10 +21,27 @@ class Body extends StatelessWidget {
   }
 }
 
-class ItemInfo extends StatelessWidget {
+class ItemInfo extends StatefulWidget {
   const ItemInfo({
     Key key,
   }) : super(key: key);
+
+  @override
+  _ItemInfoState createState() => _ItemInfoState();
+}
+
+class _ItemInfoState extends State<ItemInfo> {
+  CollectionReference foods = FirebaseFirestore.instance.collection('Order');
+  String finalDate;
+
+  getCurrentDate() {
+    var date = new DateTime.now().toString();
+    var dateParse = DateTime.parse(date);
+    var formattedDate = "${dateParse.day}-${dateParse.month}-${dateParse.year}";
+    setState(() {
+      finalDate = formattedDate.toString();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +76,30 @@ class ItemInfo extends StatelessWidget {
           // Free space  10% of total height
           OrderButton(
             size: size,
-            press: () {},
+            press: () {
+              var date = new DateTime.now().toString();
+              var dateParse = DateTime.parse(date);
+              var formattedDate = "${dateParse.day}-${dateParse.month}-${dateParse.year}";
+              setState(() {
+                finalDate = formattedDate.toString();
+              });
+              return foods
+                  .add({
+                    'food_information': {
+                      'food_name': 'Cheese Burger',
+                      'Price': '15\$',
+                      'detaille':
+                          'A cheeseburger is a hamburger topped with cheese. Traditionally, the slice of cheese is placed on top of the meat patty, but the burger can include variations in structure, ingredients and composition.',
+                    },
+                    'date': finalDate,
+                  })
+                  .then(
+                    (value) => print("Order Added"),
+                  )
+                  .catchError(
+                    (error) => print("Failed to add Order: $error"),
+                  );
+            },
           )
         ],
       ),

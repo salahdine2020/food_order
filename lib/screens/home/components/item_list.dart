@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/screens/details/details-screen.dart';
-import 'package:food_app/screens/home/components/item_card.dart';
+import 'package:food_order_test/screens/details/details-screen.dart';
+import 'package:food_order_test/screens/home/components/item_card.dart';
 
 class ItemList extends StatelessWidget {
   const ItemList({
@@ -21,9 +21,7 @@ class ItemList extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) {
-                    return DetailsScreen();
-                  },
+                  builder: (context) => DetailsScreen(),
                 ),
               );
             },

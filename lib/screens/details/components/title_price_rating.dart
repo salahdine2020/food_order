@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/constants.dart';
+import 'package:food_order_test/constants.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class TitlePriceRating extends StatelessWidget {
@@ -36,7 +36,8 @@ class TitlePriceRating extends StatelessWidget {
                     SmoothStarRating(
                       borderColor: kPrimaryColor,
                       rating: rating,
-                      onRatingChanged: onRatingChanged,
+                      onRated: onRatingChanged,
+                      //onRatingChanged: onRatingChanged,
                     ),
                     SizedBox(width: 10),
                     Text("$numOfReviews reviews"),
